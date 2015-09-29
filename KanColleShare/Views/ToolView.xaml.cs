@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KanColleShare
+namespace KanColleShare.Views
 {
     /// <summary>
-    /// UserControl1.xaml の相互作用ロジック
+    /// ToolView.xaml の相互作用ロジック
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class ToolView : UserControl
     {
-        public UserControl1()
+        public ToolView()
         {
             InitializeComponent();
         }

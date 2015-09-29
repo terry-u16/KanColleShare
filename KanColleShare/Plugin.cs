@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Grabacr07.KanColleViewer.Composition;
 using System.ComponentModel.Composition;
+using KanColleShare.Views;
+using KanColleShare.ViewModels;
 
 namespace KanColleShare
 {
@@ -19,13 +21,22 @@ namespace KanColleShare
     [Export(typeof(ISettings))]
     public class Plugin : IPlugin, ITool, IRequestNotify, ISettings
     {
+        readonly ToolViewModel toolViewModel;
+        readonly SettingsViewModel settingsViewModel;
+
         string ITool.Name => "Share";
 
-        object ISettings.View => null;
+        object ISettings.View => new ToolView { DataContext = toolViewModel };
 
-        object ITool.View => null;
+        object ITool.View => new SettingsView { DataContext = settingsViewModel };
 
         public event EventHandler<NotifyEventArgs> NotifyRequested;
+
+        public Plugin()
+        {
+            this.toolViewModel = new ToolViewModel();
+            this.settingsViewModel = new SettingsViewModel();
+        }
 
         public void Initialize()
         {
