@@ -1,0 +1,2 @@
+# KanColleShare
+スクリーンショットをtwitterで共有するKanColleViewer用プラグインです。
